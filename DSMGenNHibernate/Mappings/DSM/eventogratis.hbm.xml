@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="DSMGenNHibernate"
+		                   namespace="DSMGenNHibernate.EN.DSM">
+		    
+		    
+			
+				
+<joined-subclass name="EventoGratisEN" extends="DSMGenNHibernate.EN.DSM.EventoEN" table="EventoGratis"> 
+	<key>
+    	
+				<column name="idEvento"/>
+		
+    	
+   	</key>
+
+			
+					
+					<property name="Aforo" type="integer"> 
+						<column name="aforo"  not-null="true"/>
+					</property>
+			
+			
+					
+		
+ 	  
+		 </joined-subclass>
+		  
+		  <query name="EventoGratisENReadAllHQL">from EventoGratisEN</query>
+		</hibernate-mapping>
+	

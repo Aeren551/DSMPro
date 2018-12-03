@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="DSMGenNHibernate"
+		                   namespace="DSMGenNHibernate.EN.DSM">
+		    
+		    
+			
+				<class name="EventoEN" table="Evento"> 
+				  	
+						<id name="Id" column="idEvento" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Lugar" type="string"> 
+						<column name="lugar"  not-null="true"/>
+					</property>
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+					<property name="Tipo" > 
+						<column name="tipo"  not-null="true"/>
+					</property>
+					<property name="Descripcion" type="string"> 
+						<column name="descripcion"  not-null="true"/>
+					</property>
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Genero" > 
+						<column name="genero"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Asistente" table="[asistente_evento]" inverse="true" >
+							<key>
+								
+									<column name="FK_idEvento_idEvento"/> 
+							</key>
+      						<many-to-many class="DSMGenNHibernate.EN.DSM.AsistenteEN">
+									<column name="FK_correoUsuario_idAsistente"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Grupo" table="[evento_grupo]"  >
+							<key>
+								
+									<column name="FK_idEvento_idEvento"/> 
+							</key>
+      						<many-to-many class="DSMGenNHibernate.EN.DSM.GrupoEN">
+									<column name="FK_idGrupo_idGrupo"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Comentario" >
+							<key>
+							
+								
+								<column name="FK_idEvento_idEvento"/>
+					      	</key>
+							<one-to-many class="DSMGenNHibernate.EN.DSM.ComentarioEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Premio" >
+							<key>
+							
+								
+								<column name="FK_idEvento_idEvento"/>
+					      	</key>
+							<one-to-many class="DSMGenNHibernate.EN.DSM.PremioEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="EventoENReadAllHQL">from EventoEN</query>
+		</hibernate-mapping>
+	

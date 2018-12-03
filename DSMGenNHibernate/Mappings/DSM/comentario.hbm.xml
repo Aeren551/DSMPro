@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="DSMGenNHibernate"
+		                   namespace="DSMGenNHibernate.EN.DSM">
+		    
+		    
+			
+				<class name="ComentarioEN" table="Comentario"> 
+				  	
+						<id name="Id" column="idComentario" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Titulo" type="string"> 
+						<column name="titulo"  not-null="true"/>
+					</property>
+					<property name="Texto" type="string"> 
+						<column name="texto"  not-null="true"/>
+					</property>
+					<property name="Likes" type="integer"> 
+						<column name="likes"  not-null="true"/>
+					</property>
+			
+			
+			
+		  			
+						<many-to-one name="Evento" class="DSMGenNHibernate.EN.DSM.EventoEN" >	
+								<column name="FK_idEvento_idEvento"/> 
+						</many-to-one>
+											 					
+			
+		  			
+					
+							   <one-to-one name="Asistente" class="DSMGenNHibernate.EN.DSM.AsistenteEN" property-ref="Comentario_0" />							
+					 
+						
+			
+			
+			
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ComentarioENReadAllHQL">from ComentarioEN</query>
+		</hibernate-mapping>
+	

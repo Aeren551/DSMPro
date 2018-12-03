@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="DSMGenNHibernate"
+		                   namespace="DSMGenNHibernate.EN.DSM">
+		    
+		    
+			
+				<class name="GrupoEN" table="Grupo"> 
+				  	
+						<id name="Id" column="idGrupo" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Cantidad" type="integer"> 
+						<column name="cantidad"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<bag name="Evento" table="[evento_grupo]" inverse="true" >
+							<key>
+								
+									<column name="FK_idGrupo_idGrupo"/> 
+							</key>
+      						<many-to-many class="DSMGenNHibernate.EN.DSM.EventoEN">
+									<column name="FK_idEvento_idEvento"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Usuario" table="[grupo_usuario]"  >
+							<key>
+								
+									<column name="FK_idGrupo_idGrupo"/> 
+							</key>
+      						<many-to-many class="DSMGenNHibernate.EN.DSM.UsuarioEN">
+									<column name="FK_correoUsuario_idUsuario"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Premio" >
+							<key>
+							
+								
+								<column name="FK_idGrupo_idGrupo"/>
+					      	</key>
+							<one-to-many class="DSMGenNHibernate.EN.DSM.PremioEN"/>
+					    </bag>
+					
+			
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="GrupoENReadAllHQL">from GrupoEN</query>
+		</hibernate-mapping>
+	
