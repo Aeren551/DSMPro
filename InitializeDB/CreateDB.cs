@@ -20,7 +20,7 @@ public static void Create (string databaseArg, string userArg, string passArg)
         String user = userArg;
         String pass = passArg;
 
-        // Conex DB
+        // Conex DB AAAAAAAAAAAAAAAAAAAAAAAAA
         SqlConnection cnn = new SqlConnection (@"Server=(local)\sqlexpress; database=master; integrated security=yes");
 
         // Order T-SQL create user
