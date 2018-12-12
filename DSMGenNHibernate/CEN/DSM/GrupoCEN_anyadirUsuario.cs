@@ -30,5 +30,6 @@ public void AnyadirUsuario (int p_Grupo_OID, System.Collections.Generic.IList<st
 
         /*PROTECTED REGION END*/
 }
-}
+
+    }
 }

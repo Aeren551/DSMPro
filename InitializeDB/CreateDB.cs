@@ -20,7 +20,7 @@ public static void Create (string databaseArg, string userArg, string passArg)
         String user = userArg;
         String pass = passArg;
 
-        // Conex DB 
+        // Conex DB AAAAAAAAAAAAAAAAAAAAAAAAA
         SqlConnection cnn = new SqlConnection (@"Server=(local)\sqlexpress; database=master; integrated security=yes");
 
         // Order T-SQL create user
@@ -189,18 +189,20 @@ public static void InitializeData ()
 
 
 
-                /* Error en IList
-                 *
-                 * IList<UsuarioEN> LusuariosG;
-                 * LusuariosG.Add(usuario1EN);
-                 * LusuariosG.Add(usuario2EN);
-                 * LusuariosG.Add(usuario3EN);
-                 *
-                 *
-                 * GrupoEN grupo1EN = new GrupoEN();
-                 * grupo1EN.Nombre = "Grupo el gran ";
-                 *
-                 * grupoCEN.CrearGrupo(grupo1EN.Nombre, LusuariosG);*/
+                /* Error en IList 
+
+                IList<UsuarioEN> LusuariosG = new IList<UsuarioEN>
+                {
+                    usuario1EN,
+                    usuario2EN,
+                    usuario3EN
+                };
+                */
+
+                GrupoEN grupo1EN = new GrupoEN();
+                  grupo1EN.Nombre = "Grupo el gran ";
+                 
+                 // grupoCEN.CrearGrupo(grupo1EN.Nombre, LusuariosG, LusuariosG.Count);
 
                 MensajeEN mensaje1EN = new MensajeEN ();
 
