@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSMGenNHibernate", "DSMGenN
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSM", "DSM\DSM.csproj", "{92B31986-43D1-4E64-AFE5-ED3C501A9ADD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSM2", "DSM2\DSM2.csproj", "{EB497E63-7D49-4CAC-8359-1775432E947B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,14 @@ Global
 		{92B31986-43D1-4E64-AFE5-ED3C501A9ADD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{92B31986-43D1-4E64-AFE5-ED3C501A9ADD}.Release|x86.ActiveCfg = Release|Any CPU
 		{92B31986-43D1-4E64-AFE5-ED3C501A9ADD}.Release|x86.Build.0 = Release|Any CPU
+		{EB497E63-7D49-4CAC-8359-1775432E947B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB497E63-7D49-4CAC-8359-1775432E947B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB497E63-7D49-4CAC-8359-1775432E947B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EB497E63-7D49-4CAC-8359-1775432E947B}.Debug|x86.Build.0 = Debug|Any CPU
+		{EB497E63-7D49-4CAC-8359-1775432E947B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB497E63-7D49-4CAC-8359-1775432E947B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB497E63-7D49-4CAC-8359-1775432E947B}.Release|x86.ActiveCfg = Release|Any CPU
+		{EB497E63-7D49-4CAC-8359-1775432E947B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

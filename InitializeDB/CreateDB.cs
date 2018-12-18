@@ -1,4 +1,3 @@
-
 /*PROTECTED REGION ID(CreateDB_imports) ENABLED START*/
 using System;
 using System.Collections.Generic;
@@ -12,68 +11,69 @@ using DSMGenNHibernate.CAD.DSM;
 /*PROTECTED REGION END*/
 namespace InitializeDB
 {
-public class CreateDB
-{
-public static void Create (string databaseArg, string userArg, string passArg)
-{
-        String database = databaseArg;
-        String user = userArg;
-        String pass = passArg;
-
-        // Conex DB 
-        SqlConnection cnn = new SqlConnection (@"Server=(local)\sqlexpress; database=master; integrated security=yes");
-
-        // Order T-SQL create user
-        String createUser = @"IF NOT EXISTS(SELECT name FROM master.dbo.syslogins WHERE name = '" + user + @"')
-            BEGIN
-                CREATE LOGIN ["                                                                                                                                     + user + @"] WITH PASSWORD=N'" + pass + @"', DEFAULT_DATABASE=[master], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
-            END"                                                                                                                                                                                                                                                                                    ;
-
-        //Order delete user if exist
-        String deleteDataBase = @"if exists(select * from sys.databases where name = '" + database + "') DROP DATABASE [" + database + "]";
-        //Order create databas
-        string createBD = "CREATE DATABASE " + database;
-        //Order associate user with database
-        String associatedUser = @"USE [" + database + "];CREATE USER [" + user + "] FOR LOGIN [" + user + "];USE [" + database + "];EXEC sp_addrolemember N'db_owner', N'" + user + "'";
-        SqlCommand cmd = null;
-
-        try
+    public class CreateDB
+    {
+        public static void Create(string databaseArg, string userArg, string passArg)
         {
+            String database = databaseArg;
+            String user = userArg;
+            String pass = passArg;
+
+            // Conex DB 
+            SqlConnection cnn = new SqlConnection(@"Server=(local)\sqlexpress; database=master; integrated security=yes");
+
+            // Order T-SQL create user
+            String createUser = @"IF NOT EXISTS(SELECT name FROM master.dbo.syslogins WHERE name = '" + user + @"')
+            BEGIN
+                CREATE LOGIN [" + user + @"] WITH PASSWORD=N'" + pass + @"', DEFAULT_DATABASE=[master], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+            END";
+
+            //Order delete user if exist
+            String deleteDataBase = @"if exists(select * from sys.databases where name = '" + database + "') DROP DATABASE [" + database + "]";
+            //Order create databas
+            string createBD = "CREATE DATABASE " + database;
+            //Order associate user with database
+            String associatedUser = @"USE [" + database + "];CREATE USER [" + user + "] FOR LOGIN [" + user + "];USE [" + database + "];EXEC sp_addrolemember N'db_owner', N'" + user + "'";
+            SqlCommand cmd = null;
+
+            try
+            {
                 // Open conex
-                cnn.Open ();
+                cnn.Open();
 
                 //Create user in SQLSERVER
-                cmd = new SqlCommand (createUser, cnn);
-                cmd.ExecuteNonQuery ();
+                cmd = new SqlCommand(createUser, cnn);
+                cmd.ExecuteNonQuery();
 
                 //DELETE database if exist
-                cmd = new SqlCommand (deleteDataBase, cnn);
-                cmd.ExecuteNonQuery ();
+                cmd = new SqlCommand(deleteDataBase, cnn);
+                cmd.ExecuteNonQuery();
 
                 //CREATE DB
-                cmd = new SqlCommand (createBD, cnn);
-                cmd.ExecuteNonQuery ();
+                cmd = new SqlCommand(createBD, cnn);
+                cmd.ExecuteNonQuery();
 
                 //Associate user with db
-                cmd = new SqlCommand (associatedUser, cnn);
-                cmd.ExecuteNonQuery ();
+                cmd = new SqlCommand(associatedUser, cnn);
+                cmd.ExecuteNonQuery();
 
-                System.Console.WriteLine ("DataBase create sucessfully..");
-        }
-        catch (Exception ex)
-        {
+                System.Console.WriteLine("DataBase create sucessfully..");
+            }
+            catch (Exception ex)
+            {
                 throw ex;
-        }
-        finally
-        {
-                if (cnn.State == ConnectionState.Open) {
-                        cnn.Close ();
+            }
+            finally
+            {
+                if (cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
                 }
+            }
         }
-}
 
-public static void InitializeData ()
-{
+        public static void InitializeData()
+        {
             /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
 
             try
@@ -189,35 +189,35 @@ public static void InitializeData ()
                 administradorCEN.CrearUsuario(admin1EN.Correo, admin1EN.Nombre, admin1EN.Contrasenya, admin1EN.Foto, admin1EN.Direccion, admin1EN.Telefono);
 
 
-                
+
 
                 List<String> LusuariosG = new List<string>();
                 LusuariosG.Add(usuario1EN.Correo);
                 LusuariosG.Add(usuario2EN.Correo);
                 LusuariosG.Add(usuario3EN.Correo);
-            
-                 
-                 
-                  GrupoEN grupo1EN = new GrupoEN();
-                  grupo1EN.Nombre = "Grupo el gran ";
-                  grupoCEN.CrearGrupo(grupo1EN.Nombre, LusuariosG, 14);
 
-                MensajeEN mensaje1EN = new MensajeEN ();
+
+
+                GrupoEN grupo1EN = new GrupoEN();
+                grupo1EN.Nombre = "Grupo el gran ";
+                grupoCEN.CrearGrupo(grupo1EN.Nombre, LusuariosG, 14);
+
+                MensajeEN mensaje1EN = new MensajeEN();
 
                 mensaje1EN.Leido = false;
                 mensaje1EN.Mensaje = "Hola, este es el primer mensaje que se ha enviado en la historia de nuestra web.";
 
-                mensajeCEN.CrearMensaje (mensaje1EN.Mensaje, mensaje1EN.Leido, usuario1EN.Correo, usuario2EN.Correo);
+                mensajeCEN.CrearMensaje(mensaje1EN.Mensaje, mensaje1EN.Leido, usuario1EN.Correo, usuario2EN.Correo);
 
-                ComentarioEN comentario1EN = new ComentarioEN ();
+                ComentarioEN comentario1EN = new ComentarioEN();
 
                 comentario1EN.Titulo = "El evento maravilloso";
                 comentario1EN.Texto = "Tras asistir a este evento  me he quedado maravillada con este concurso tan divertido, ademas he ganado el 1er puesto y el premio ha sido genial.";
                 comentario1EN.Likes = 666;
 
-                
+
                 //ComentarioCEN.crearComentario(comentario1EN.Titulo, comentario1EN.Texto, comentarioEN.Likes, usuario1EN.Correo);
-                 
+
 
 
                 /*  EventoEN evento1EN = new EventoEN();
@@ -241,6 +241,10 @@ public static void InitializeData ()
 
 
 
+                EventoGratisEN evento2EN = new EventoGratisEN();
+                evento2EN.Nombre = "Si";
+                evento2EN.Aforo = 12;
+                
 
 
 
@@ -251,12 +255,12 @@ public static void InitializeData ()
 
 
                 /*PROTECTED REGION END*/
-        }
-        catch (Exception ex)
-        {
-                System.Console.WriteLine (ex.InnerException);
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex.InnerException);
                 throw ex;
+            }
         }
-}
-}
+    }
 }

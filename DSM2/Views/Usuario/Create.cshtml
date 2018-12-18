@@ -1,0 +1,62 @@
+﻿@model DSM2.Models.Usuario
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+
+        <div class="form-horizontal">
+            <h4>Usuario</h4>
+            <hr />
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        <p>  A VERRRRRRR</p>
+        <fieldset>
+            <legend>Usuario</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.correo)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.nombre)
+                @Html.ValidationMessageFor(model => model.nombre)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.contrasenya)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.contrasenya)
+                @Html.ValidationMessageFor(model => model.contrasenya)
+            </div>
+
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>
