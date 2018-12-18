@@ -20,7 +20,7 @@ public static void Create (string databaseArg, string userArg, string passArg)
         String user = userArg;
         String pass = passArg;
 
-        // Conex DB AAAAAAAAAAAAAAAAAAAAAAAAA
+        // Conex DB 
         SqlConnection cnn = new SqlConnection (@"Server=(local)\sqlexpress; database=master; integrated security=yes");
 
         // Order T-SQL create user
@@ -74,61 +74,62 @@ public static void Create (string databaseArg, string userArg, string passArg)
 
 public static void InitializeData ()
 {
-        /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
+            /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
 
-        try
-        {
+            try
+            {
                 //CAD
                 //USUARIOS
-                IUsuarioCAD _IusuarioCAD = new UsuarioCAD ();
-                IAdministradorCAD _IadministradorCAD = new AdministradorCAD ();
-                IAsistenteCAD _IasistenteCAD = new AsistenteCAD ();
-                IGrupoCAD _IgrupoCAD = new GrupoCAD ();
+                IUsuarioCAD _IusuarioCAD = new UsuarioCAD();
+                IAdministradorCAD _IadministradorCAD = new AdministradorCAD();
+                IAsistenteCAD _IasistenteCAD = new AsistenteCAD();
+                IGrupoCAD _IgrupoCAD = new GrupoCAD();
                 //EVENTO
-                IEventoCAD _IeventoCAD = new EventoCAD ();
-                IEventoPagoCAD _IeventoPagoCAD = new EventoPagoCAD ();
-                IEventoGratisCAD _IeventoGratisCAD = new EventoGratisCAD ();
-                IEntradaCAD _IentradaCAD = new EntradaCAD ();
+                IEventoCAD _IeventoCAD = new EventoCAD();
+                IEventoPagoCAD _IeventoPagoCAD = new EventoPagoCAD();
+                IEventoGratisCAD _IeventoGratisCAD = new EventoGratisCAD();
+                IEntradaCAD _IentradaCAD = new EntradaCAD();
                 //OTROS
-                IComentarioCAD _IcomentarioCAD = new ComentarioCAD ();
-                IPremioCAD _IpremioCAD = new PremioCAD ();
-                IMensajeCAD _ImensajeCAD = new MensajeCAD ();
+                IComentarioCAD _IcomentarioCAD = new ComentarioCAD();
+                IPremioCAD _IpremioCAD = new PremioCAD();
+                IMensajeCAD _ImensajeCAD = new MensajeCAD();
 
 
                 //EN
 
-                UsuarioEN usuarioEN = new UsuarioEN ();
-                AdministradorEN administradorEN = new AdministradorEN ();
-                AsistenteEN asistenteEN = new AsistenteEN ();
-                GrupoEN grupoEN = new GrupoEN ();
+                UsuarioEN usuarioEN = new UsuarioEN();
+                AdministradorEN administradorEN = new AdministradorEN();
+                AsistenteEN asistenteEN = new AsistenteEN();
+                GrupoEN grupoEN = new GrupoEN();
 
-                EventoEN eventoEN = new EventoEN ();
-                EventoPagoEN eventoPagoEN = new EventoPagoEN ();
-                EventoGratisEN eventoGratisEN = new EventoGratisEN ();
-                EntradaEN entradaEN = new EntradaEN ();
+                EventoEN eventoEN = new EventoEN();
+                EventoPagoEN eventoPagoEN = new EventoPagoEN();
+                EventoGratisEN eventoGratisEN = new EventoGratisEN();
+                EntradaEN entradaEN = new EntradaEN();
 
-                ComentarioEN comentarioEN = new ComentarioEN ();
-                PremioEN premioEN = new PremioEN ();
-                MensajeEN mensajeEN = new MensajeEN ();
+                ComentarioEN comentarioEN = new ComentarioEN();
+                PremioEN premioEN = new PremioEN();
+                MensajeEN mensajeEN = new MensajeEN();
 
                 //CEN
 
-                UsuarioCEN usuarioCEN = new UsuarioCEN (_IusuarioCAD);
-                AdministradorCEN administradorCEN = new AdministradorCEN (_IadministradorCAD);
-                AsistenteCEN asistenteCEN = new AsistenteCEN (_IasistenteCAD);
-                GrupoCEN grupoCEN = new GrupoCEN (_IgrupoCAD);
+                UsuarioCEN usuarioCEN = new UsuarioCEN(_IusuarioCAD);
+                AdministradorCEN administradorCEN = new AdministradorCEN(_IadministradorCAD);
+                AsistenteCEN asistenteCEN = new AsistenteCEN(_IasistenteCAD);
+                GrupoCEN grupoCEN = new GrupoCEN(_IgrupoCAD);
 
-                EventoCEN enventoCEN = new EventoCEN (_IeventoCAD);
-                EventoPagoCEN eventoPagoCEN = new EventoPagoCEN (_IeventoPagoCAD);
-                EventoGratisCEN eventoGratisCEN = new EventoGratisCEN (_IeventoGratisCAD);
-                EntradaCEN entradaCEN = new EntradaCEN (_IentradaCAD);
+                EventoCEN enventoCEN = new EventoCEN(_IeventoCAD);
+                EventoPagoCEN eventoPagoCEN = new EventoPagoCEN(_IeventoPagoCAD);
+                EventoGratisCEN eventoGratisCEN = new EventoGratisCEN(_IeventoGratisCAD);
+                EntradaCEN entradaCEN = new EntradaCEN(_IentradaCAD);
 
-                ComentarioCEN comentarioCEN = new ComentarioCEN (_IcomentarioCAD);
-                PremioCEN premioCEN = new PremioCEN (_IpremioCAD);
-                MensajeCEN mensajeCEN = new MensajeCEN (_ImensajeCAD);
+                ComentarioCEN comentarioCEN = new ComentarioCEN(_IcomentarioCAD);
+                PremioCEN premioCEN = new PremioCEN(_IpremioCAD);
+                MensajeCEN mensajeCEN = new MensajeCEN(_ImensajeCAD);
 
                 //CP
 
+                //ComentarioCP comentarioCP = new ComentarioCP();
                 /* Adri aqui  se supone que hay que hacer comentarios
                  * *se supone que tienes que poner :
                  * ComentarioCP comentarioCP = new ComentarioCP();
@@ -138,7 +139,7 @@ public static void InitializeData ()
                 //USUARIO
 
 
-                UsuarioEN usuario1EN = new UsuarioEN ();
+                UsuarioEN usuario1EN = new UsuarioEN();
 
                 usuario1EN.Nombre = " Adelaida_granada";
                 usuario1EN.Correo = "granadita@gmail.com";
@@ -147,10 +148,10 @@ public static void InitializeData ()
                 usuario1EN.Foto = "imagen.jpg";
                 usuario1EN.Telefono = 679987543;
 
-                usuarioCEN.CrearUsuario (usuario1EN.Correo, usuario1EN.Nombre, usuario1EN.Contrasenya, usuario1EN.Foto, usuario1EN.Direccion, usuario1EN.Telefono);
+                usuarioCEN.CrearUsuario(usuario1EN.Correo, usuario1EN.Nombre, usuario1EN.Contrasenya, usuario1EN.Foto, usuario1EN.Direccion, usuario1EN.Telefono);
 
 
-                UsuarioEN usuario2EN = new UsuarioEN ();
+                UsuarioEN usuario2EN = new UsuarioEN();
 
                 usuario2EN.Nombre = " Eustaquio_abichuela";
                 usuario2EN.Correo = "abichuelita@gmail.com";
@@ -159,11 +160,11 @@ public static void InitializeData ()
                 usuario2EN.Foto = "imagen1.jpg";
                 usuario2EN.Telefono = 633456098;
 
-                usuarioCEN.CrearUsuario (usuario2EN.Correo, usuario2EN.Nombre, usuario2EN.Contrasenya, usuario2EN.Foto, usuario2EN.Direccion, usuario1EN.Telefono);
+                usuarioCEN.CrearUsuario(usuario2EN.Correo, usuario2EN.Nombre, usuario2EN.Contrasenya, usuario2EN.Foto, usuario2EN.Direccion, usuario1EN.Telefono);
 
 
 
-                UsuarioEN usuario3EN = new UsuarioEN ();
+                UsuarioEN usuario3EN = new UsuarioEN();
 
                 usuario3EN.Nombre = "Ramiro_alcachofa";
                 usuario3EN.Correo = "alcachofita@gmail.com";
@@ -172,10 +173,10 @@ public static void InitializeData ()
                 usuario3EN.Foto = "imagen1.jpg";
                 usuario3EN.Telefono = 633456098;
 
-                usuarioCEN.CrearUsuario (usuario3EN.Correo, usuario3EN.Nombre, usuario3EN.Contrasenya, usuario3EN.Foto, usuario3EN.Direccion, usuario1EN.Telefono);
+                usuarioCEN.CrearUsuario(usuario3EN.Correo, usuario3EN.Nombre, usuario3EN.Contrasenya, usuario3EN.Foto, usuario3EN.Direccion, usuario1EN.Telefono);
 
 
-                AdministradorEN admin1EN = new AdministradorEN ();
+                AdministradorEN admin1EN = new AdministradorEN();
 
                 admin1EN.Correo = "soyeladminsupremo@gmail.com";
                 admin1EN.Nombre = "Tu todopoderoso Admin 69 ";
@@ -185,24 +186,21 @@ public static void InitializeData ()
                 admin1EN.Telefono = 666000999;
 
                 //esto se ha cambiado de crear Administrador a crear usuario por lo que comento el profe de la sobrecargade metodos al heredar
-                administradorCEN.CrearUsuario (admin1EN.Correo, admin1EN.Nombre, admin1EN.Contrasenya, admin1EN.Foto, admin1EN.Direccion, admin1EN.Telefono);
+                administradorCEN.CrearUsuario(admin1EN.Correo, admin1EN.Nombre, admin1EN.Contrasenya, admin1EN.Foto, admin1EN.Direccion, admin1EN.Telefono);
 
 
+                
 
-                /* Error en IList 
-
-                IList<UsuarioEN> LusuariosG = new IList<UsuarioEN>
-                {
-                    usuario1EN,
-                    usuario2EN,
-                    usuario3EN
-                };
-                */
-
-                GrupoEN grupo1EN = new GrupoEN();
-                  grupo1EN.Nombre = "Grupo el gran ";
+                List<String> LusuariosG = new List<string>();
+                LusuariosG.Add(usuario1EN.Correo);
+                LusuariosG.Add(usuario2EN.Correo);
+                LusuariosG.Add(usuario3EN.Correo);
+            
                  
-                 // grupoCEN.CrearGrupo(grupo1EN.Nombre, LusuariosG, LusuariosG.Count);
+                 
+                  GrupoEN grupo1EN = new GrupoEN();
+                  grupo1EN.Nombre = "Grupo el gran ";
+                  grupoCEN.CrearGrupo(grupo1EN.Nombre, LusuariosG, 14);
 
                 MensajeEN mensaje1EN = new MensajeEN ();
 
@@ -217,8 +215,9 @@ public static void InitializeData ()
                 comentario1EN.Texto = "Tras asistir a este evento  me he quedado maravillada con este concurso tan divertido, ademas he ganado el 1er puesto y el premio ha sido genial.";
                 comentario1EN.Likes = 666;
 
-                //  comentarioCEN.crearComentario(comentario1EN.Titulo, comentario1EN.Texto, comentarioEN.Likes, usuario1EN.Correo);
-
+                
+                //ComentarioCEN.crearComentario(comentario1EN.Titulo, comentario1EN.Texto, comentarioEN.Likes, usuario1EN.Correo);
+                 
 
 
                 /*  EventoEN evento1EN = new EventoEN();
