@@ -50,11 +50,11 @@
   <ItemGroup>
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\ooh4ria\workspace\DSMGen\DSMGenNHibernate\AppLib\Antlr3.Runtime.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\DSM\DSM\AppLib\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\ooh4ria\workspace\DSMGen\DSMGenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\DSM\DSM\AppLib\Castle.DynamicProxy2.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -64,19 +64,19 @@
     </Reference>
     <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\ooh4ria\workspace\DSMGen\DSMGenNHibernate\AppLib\Iesi.Collections.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\DSM\DSM\AppLib\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="jose-jwt, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\ooh4ria\workspace\DSMGen\DSMGenNHibernate\AppLib\jose-jwt.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\DSM\DSM\AppLib\jose-jwt.dll</HintPath>
     </Reference>
     <Reference Include="LinFu.DynamicProxy, Version=1.0.3.14911, Culture=neutral, PublicKeyToken=62a6874124340d6e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\ooh4ria\workspace\DSMGen\DSMGenNHibernate\AppLib\LinFu.DynamicProxy.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\DSM\DSM\AppLib\LinFu.DynamicProxy.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\ooh4ria\workspace\DSMGen\DSMGenNHibernate\AppLib\log4net.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\DSM\DSM\AppLib\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
@@ -147,21 +147,21 @@
     </Reference>
     <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\ooh4ria\workspace\DSMGen\DSMGenNHibernate\AppLib\NHibernate.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\DSM\DSM\AppLib\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\ooh4ria\workspace\DSMGen\DSMGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\DSM\DSM\AppLib\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate.ByteCode.LinFu, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\ooh4ria\workspace\DSMGen\DSMGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\DSM\DSM\AppLib\NHibernate.ByteCode.LinFu.dll</HintPath>
     </Reference>
     <Reference Include="nunit.core">
-      <HintPath>..\..\..\..\..\..\..\..\ooh4ria\workspace\DSMGen\DSMGenNHibernate\AppLib\nunit.core.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\DSM\DSM\AppLib\nunit.core.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\..\..\..\..\..\..\..\ooh4ria\workspace\DSMGen\DSMGenNHibernate\AppLib\nunit.framework.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\DSM\DSM\AppLib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -243,6 +243,7 @@
     <Compile Include="Controllers\EventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MensajesController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -253,6 +254,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\AssemblerUsuario.cs" />
+    <Compile Include="Models\Mensajes.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -365,6 +367,7 @@
     <Content Include="Views\Evento\Index.cshtml" />
     <Content Include="Views\Usuario\Create.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Mensajes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
