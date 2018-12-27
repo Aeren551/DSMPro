@@ -10,16 +10,22 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using System.ComponentModel.DataAnnotations;
+//using DotNetOpenAuth.AspNet;
+//using Microsoft.Web.WebPages.OAuth;
+//using WebMatrix.WebData;
+//using DSM2.Filters;
+
+using System.IO;
 
 namespace DSM2.Controllers
 {
-    public class ComentarioController : Controller
+    public class ComentarioController : BasicController
     {
         // GET: Comentario
         public ActionResult Index()
         {
             ComentarioCEN comentarioCEN = new ComentarioCEN();
-            IEnumerable<DSMGenNHibernate.EN.DSM.ComentarioEN> listComent = comentarioCEN.ReadAll(0, -1).ToList();
+            IEnumerable<ComentarioEN> listComent = comentarioCEN.ReadAll(0, -1).ToList();
             return View(listComent);
             
         }
@@ -27,13 +33,27 @@ namespace DSM2.Controllers
         // GET: Comentario/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            ComentarioModel com = null;
+            SessionInitialize();
+            ComentarioEN comEN = new ComentarioCAD(session).ReadOIDDefault(id);
+            com = new ComentarioAssembler().ConvierteObjInterfaz(comEN);
+
+            SessionClose();
+
+            return View(com);
         }
 
         // GET: Comentario/Create
         public ActionResult Create()
         {
-            return View();
+
+            ComentarioModel comEN = new ComentarioModel();
+            String idd = RouteData.Values["id"].ToString();
+            //ES POSIBLE Q HAGA FALTAHACER UN ID AUX
+            int refid = Int32.Parse(idd);
+            comEN.id = refid;
+
+            return View(comEN);
         }
 
         // POST: Comentario/Create
@@ -55,29 +75,34 @@ namespace DSM2.Controllers
         // GET: Comentario/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            ComentarioModel comen = null;
+            SessionInitialize();
+            ComentarioEN comEN = new ComentarioCAD(session).ReadOIDDefault(id);
+            comen = new ComentarioAssembler().ConvierteObjInterfaz(comEN);
+            SessionClose();
+
+            return View(comen);
         }
 
         // POST: Comentario/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, ComentarioModel com)
         {
-            try
-            {
-                // TODO: Add update logic here
+            ComentarioCEN comCEN = new ComentarioCEN();
+            ComentarioEN comEN = comCEN.ReadOID(id);
+            comCEN.EditarComentario(id, " ", com.texto, com.likes);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Details", "Evento", new { id = comEN.Evento.Id });
+
+            //return View();
         }
 
         // GET: Comentario/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            ComentarioCEN comenCEN = new ComentarioCEN();
+
+            return View(comenCEN);
         }
 
         // POST: Comentario/Delete/5
@@ -87,13 +112,37 @@ namespace DSM2.Controllers
             try
             {
                 // TODO: Add delete logic here
+                ComentarioCEN comenCEN = new ComentarioCEN();
+                ComentarioEN comenEN = comenCEN.ReadOID(id);
+                comenCEN.BorrarComentario(id);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Evento", new { id = comenEN.Evento.Id });
             }
             catch
             {
-                return View();
+                ComentarioCEN coCEN = new ComentarioCEN();
+                coCEN.BorrarComentario(id);
+                return RedirectToAction("Index");
             }
+        }
+
+        public ActionResult likes(int id)
+        {
+
+            ComentarioModel como = null;
+            SessionInitialize();
+            ComentarioEN comEN = new ComentarioCAD(session).ReadOIDDefault(id);
+            como = new ComentarioAssembler().ConvierteObjInterfaz(comEN);
+            SessionClose();
+
+            ComentarioCEN comCEN = new ComentarioCEN();
+            comEN.Likes++;
+
+            comCEN.EditarComentario(id, como.titulo, como.texto, comEN.Likes);
+
+            return RedirectToAction("Details", "Evento", new { id = comEN.Evento.Id });
+            //return View();
+
         }
     }
 }

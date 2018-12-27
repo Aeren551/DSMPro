@@ -129,8 +129,7 @@ public int CrearComentario (ComentarioEN comentario)
                         // Argumento OID y no colección.
                         comentario.Evento = (DSMGenNHibernate.EN.DSM.EventoEN)session.Load (typeof(DSMGenNHibernate.EN.DSM.EventoEN), comentario.Evento.Id);
 
-                        comentario.Evento.Comentario
-                        .Add (comentario);
+                        comentario.Evento.Comentario.Add (comentario);
                 }
                 if (comentario.Asistente != null) {
                         // Argumento OID y no colección.

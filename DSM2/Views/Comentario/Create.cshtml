@@ -1,0 +1,41 @@
+﻿@model DSM2.Models.ComentarioModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="jumbotron text-center">
+        <h1 style="color: red;">Añade un comentario</h1>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="editar-campo">
+            <div class="form-control">
+                <textarea class="form-control" rows="6" id="text" name="text" placeholder="Escriba aquí su comentario..."></textarea>
+            </div>
+
+            @Html.ValidationMessageFor(model => model.texto)
+
+        </div>
+
+        <p>
+            <input type="submit" value="Enviar" class="btn btn-default" />
+        </p>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

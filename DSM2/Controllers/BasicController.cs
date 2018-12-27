@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using NHibernate;
 using DSMGenNHibernate.Exceptions;
 using DSMGenNHibernate.CAD.DSM;
+using DSMGenNHibernate.CAD;
 
 namespace DSM2.Controllers
 {
