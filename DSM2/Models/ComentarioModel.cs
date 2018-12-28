@@ -9,14 +9,12 @@ namespace DSM2.Models
 {
     public class ComentarioModel
     {
-
+        //SCAFFOLDFALSE ES PARA QUE NO SE PUEDA MODIFICAR/CREAR EN LA VISTA Y CONTROLLER AUTOMATICAMENTE
         [ScaffoldColumn(false)]
         public int id { get; set; }
 
-        [ScaffoldColumn(false)]
         public String titulo { get; set; }
 
-        [ScaffoldColumn(false)]
         public String texto { get; set; }
 
         [ScaffoldColumn(false)]

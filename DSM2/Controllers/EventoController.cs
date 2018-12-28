@@ -1,22 +1,17 @@
-﻿using DSMGenNHibernate.CAD.DSM;
+﻿using DSM2.Models;
+using DSMGenNHibernate.CAD.DSM;
 using DSMGenNHibernate.CEN.DSM;
 using DSMGenNHibernate.EN.DSM;
-using DSM2.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
-//using System.Transactions;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
-using System.ComponentModel.DataAnnotations;
-//using DotNetOpenAuth.AspNet;
-//using Microsoft.Web.WebPages.OAuth;
-//using WebMatrix.WebData;
-//using DSM2.Filters;
-
 using System.IO;
-
+using NHibernate;
+using DSMGenNHibernate.CP.DSM;
 
 namespace DSM2.Controllers
 {
@@ -27,42 +22,51 @@ namespace DSM2.Controllers
         {
             //que no se olvide mirar el basic controller del petstore porque hace falta lo de inicializar sesion
             // hay que heredar de ahi, se copia y se pega en la carpeta controller el bascicontroller
-            EventoCEN eventoCEN = new EventoCEN();
-
-            //a -1 para que de todos
-            //la interfaz tiene q pasarsele una lsita i enum
-
-
+            EventoCEN evento = new EventoCEN();
+            
             //// TO LIST NUESTRO
-            IEnumerable<DSMGenNHibernate.EN.DSM.EventoEN> listEvent = eventoCEN.ReadAll(0, -1).ToList();
+            IList<EventoEN> listEvent = evento.ReadAll(0, -1).ToList();
+
+           // IEnumerable<EventoEN> list = new AssemblerEvento().ConvertListENToModel(listEvent).ToList();
             return View(listEvent);
+
         }
+
+
+
 
         // GET: Evento/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Evento reg = null;
+            SessionInitialize();
+            EventoEN podEN = new EventoCAD(session).ReadOIDDefault(id);
+            reg = new EventoAssembler().ConvertENToModelUI(podEN);
+            SessionClose();
+            return View(reg);
         }
 
         // GET: Evento/Create
         public ActionResult Create()
         {
-            Evento evento = new Evento();
-           
-            return View(evento);
-           // EventoEN eventoEN = new EventoEN();
-            //return View(eventoEN);
+            return View();
         }
 
         // POST: Evento/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        //cambio
+        //public ActionResult Create(EventoEN evento)
+        public ActionResult Create(Evento evento)
+
         {
             try
             {
                 // TODO: Add insert logic here
+                EventoCP cen = new EventoCP();
+                EventoGratisCEN gra = new EventoGratisCEN();
+                EventoPagoCEN pag = new EventoPagoCEN();
 
-
+                cen.CrearEvento(evento.Lugar, evento.Fecha, evento.Tipo, evento.Descripcion, evento.Nombre, evento.Genero);
 
 
                 return RedirectToAction("Index");

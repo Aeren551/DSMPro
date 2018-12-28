@@ -32,7 +32,7 @@ namespace DSM2.Controllers
 
             //// TO LIST NUESTRO
             IEnumerable<MensajeEN> listMsg = mensajeCEN.ReadAll(0, -1).ToList();
-            return View();
+            return View(listMsg);
         }
 
         // GET: Mensajes/Details/5
