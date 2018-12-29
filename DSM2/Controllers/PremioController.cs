@@ -1,62 +1,53 @@
-﻿using DSMGenNHibernate.CAD.DSM;
+﻿using DSM2.Models;
+using DSMGenNHibernate.CAD.DSM;
 using DSMGenNHibernate.CEN.DSM;
 using DSMGenNHibernate.EN.DSM;
-using DSM2.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
-//using System.Transactions;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
-using System.ComponentModel.DataAnnotations;
-//using DotNetOpenAuth.AspNet;
-//using Microsoft.Web.WebPages.OAuth;
-//using WebMatrix.WebData;
-//using DSM2.Filters;
-
 using System.IO;
+using NHibernate;
 
 namespace DSM2.Controllers
 {
-    public class MensajesController : Controller
+    public class PremioController : Controller
     {
-        // GET: Mensajes
+        // GET: Premio
         public ActionResult Index()
         {
-            MensajeCEN mensajeCEN = new MensajeCEN();
-
-            //a -1 para que de todos
-            //la interfaz tiene q pasarsele una lsita i enum
-
+            PremioCEN premio = new PremioCEN();
 
             //// TO LIST NUESTRO
-            IEnumerable<MensajeEN> listMsg = mensajeCEN.ReadAll(0, -1).ToList();
-            return View(listMsg);
+            IList<PremioEN> listEvent = premio.ReadAll(0, -1).ToList();
+            return View();
         }
 
-        // GET: Mensajes/Details/5
+        // GET: Premio/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Mensajes/Create
+        // GET: Premio/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Mensajes/Create
+        // POST: Premio/Create
         [HttpPost]
-        public ActionResult Create(Mensajes msg)
+        public ActionResult Create(Premio pre)
         {
             try
             {
                 // TODO: Add insert logic here
-                MensajeCEN gra = new MensajeCEN();
+                PremioCEN gra = new PremioCEN();
 
-                gra.CrearMensaje(msg.Mensaje,msg.Leido,msg.usu0,msg.usu1);
+                gra.CrearPremio(pre.Descripcion,pre.Evento,pre.Nombre,null,0);//ID de grupo null = 0?
 
                 return RedirectToAction("Index");
             }
@@ -66,13 +57,13 @@ namespace DSM2.Controllers
             }
         }
 
-        // GET: Mensajes/Edit/5
+        // GET: Premio/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Mensajes/Edit/5
+        // POST: Premio/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -88,13 +79,13 @@ namespace DSM2.Controllers
             }
         }
 
-        // GET: Mensajes/Delete/5
+        // GET: Premio/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Mensajes/Delete/5
+        // POST: Premio/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

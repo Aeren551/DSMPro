@@ -20,5 +20,11 @@ namespace DSM2.Models
 
         [ScaffoldColumn(false)]
         public Boolean Leido { get; set; }
+
+        [Display(Prompt = "Origen", Description = "Origen", Name = "Origen ")]
+        public string usu0 { get; set; }
+
+        [Display(Prompt = "Destino", Description = "Destino", Name = "Destino ")]
+        public string usu1 { get; set; }
     }
 }
