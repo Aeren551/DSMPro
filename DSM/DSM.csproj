@@ -54,8 +54,14 @@
     <Reference Include="Castle.DynamicProxy2">
       <HintPath>..\DSMGenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
     </Reference>
+    <Reference Include="EjemploDSMGenNHibernate">
+      <HintPath>..\..\..\..\..\Desktop\Universidad\Multimedia\Tercero\DSM\PetstoreMVC\InitializeDB\bin\Debug\EjemploDSMGenNHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\DSMGenNHibernate\AppLib\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="InitializeDB">
+      <HintPath>..\..\..\..\..\Desktop\Universidad\Multimedia\Tercero\DSM\PetstoreMVC\InitializeDB\bin\Debug\InitializeDB.exe</HintPath>
     </Reference>
     <Reference Include="jose-jwt">
       <HintPath>..\DSMGenNHibernate\AppLib\jose-jwt.dll</HintPath>
@@ -286,6 +292,12 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="MyApplication.app, Version=1.0.0.0">
+      <Name>InitializeDB.vshost.exe.manifest</Name>
+      <HintPath>..\..\..\..\..\Desktop\Universidad\Multimedia\Tercero\DSM\PetstoreMVC\InitializeDB\bin\Debug\InitializeDB.vshost.exe.manifest</HintPath>
+    </NativeReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
