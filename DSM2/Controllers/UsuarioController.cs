@@ -54,7 +54,7 @@ namespace DSM2.Controllers
             UsuarioEN podEN = new UsuarioCAD(session).ReadOIDDefault(id);
             reg = new AssemblerUsuario().ConvertENToModelUI(podEN);
             SessionClose();
-            return View(reg);
+            return View(reg); //FALTA ESTA VISTA
             
         }
 
