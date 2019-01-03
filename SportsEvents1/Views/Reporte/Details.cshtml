@@ -1,0 +1,41 @@
+﻿@model SportsEvents_FrontEnd.Models.ReporteModelo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12"><h2 style="color:limegreen;">Reporte - Detalles</h2></div>
+
+    </div><br />
+    <div class="row">
+        <div class="col-md-2 col-lg-2 col-xs-12" style="text-align:right;"><b>ID Usuario</b></div>
+        <div class="col-md-10 col-lg-10 col-xs-12">
+            @Html.DisplayFor(model => model.idusu)
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 col-lg-2 col-xs-12" style="text-align:right;"><b>Comentario</b></div>
+        <div class="col-md-10 col-lg-10 col-xs-12">
+            @Html.DisplayFor(model => model.texto)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-lg-2 col-xs-12" style="text-align:right;"><b>Motivo</b></div>
+        <div class="col-md-10 col-lg-10 col-xs-12">
+            Contenido
+            @Html.DisplayFor(model => model.motivo)
+
+        </div>
+    </div>
+
+</div>
+
+<br />
+<p>
+    
+    @Html.ActionLink("Back to List", "Index")
+</p>

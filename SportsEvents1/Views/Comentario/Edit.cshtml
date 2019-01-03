@@ -1,0 +1,32 @@
+﻿@model SportsEvents_FrontEnd.Models.ComentarioModelo
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+    <div class="jumbotron text-center" style="background-color:white;">
+        <h1 style="color:limegreen;">Modifica tu comentario</h1>
+
+
+        <div class="editor-field">
+            <div class="form-group">
+
+                <textarea class="form-control" rows="5" id="texto" name="texto">@Html.DisplayFor(model => model.texto)</textarea>
+            </div>
+
+           
+
+        </div>
+
+        <p>
+            <input type="submit" class="btn btn-success" value="Editar">
+        </p>
+
+    </div>
+
+}

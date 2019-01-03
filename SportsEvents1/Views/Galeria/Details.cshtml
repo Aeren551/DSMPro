@@ -1,0 +1,64 @@
+﻿@model SportsEvents_FrontEnd.Models.GaleriaModelo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<fieldset>
+    <legend>GaleriaModelo</legend>
+</fieldset>
+<div class="container">
+    <h1>@ViewBag.Titulo</h1>
+    <h2>Del evento "@ViewBag.Ev"</h2>
+
+    
+    <div class="row">
+        @foreach (var item in (List<SportsEventsGenNHibernate.EN.SportsEvents.FotoEN>)@ViewData["lista"])
+        {
+
+
+        
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action("Details", "Foto", new { id = @item.Id })" target="_blank">
+                    <img src="@Url.Content(@item.Ruta)" alt="Lights" style="width:100%">
+                    <div class="caption">
+                        <p>@item.Nombre</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+
+
+        }
+    </div>
+</div>
+@if (Request.IsAuthenticated) {
+
+    var userName = System.Web.HttpContext.Current.User.Identity.Name;
+    if (@ViewBag.Us == userName) {
+        <p>
+            <a href="@Url.Action("Create", "Foto", new { id = Model.id})" class="btn btn-primary">
+                Añadir foto
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </a>
+           
+        </p>
+    }
+    <a href="@Url.Action("Details", "Evento", new { id =Model.Evento})" class="btn btn-primary">
+        Ir a evento
+        <span class="glyphicon glyphicon" aria-hidden="true"></span>
+    </a>
+}
+else
+{
+    <a href="@Url.Action("Details", "Evento", new { id =Model.Evento})" class="btn btn-primary">
+        Ir a evento
+        <span class="glyphicon glyphicon" aria-hidden="true"></span>
+    </a>
+    @Html.ActionLink("Regístrate para aprovechar al máximo SportsEvents", "../Account/Register")
+    @Html.DisplayName(" o ")
+    @Html.ActionLink("inicia sesión", "../Account/Login")
+}

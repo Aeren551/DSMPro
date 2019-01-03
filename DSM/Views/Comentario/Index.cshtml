@@ -1,0 +1,53 @@
+﻿@model IEnumerable<SportsEventsGenNHibernate.EN.SportsEvents.ComentarioEN>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3"><h2 style="color:limegreen;">Comentario</h2></div>
+
+    </div>
+    <br />
+
+    <br />
+    <div class="row">
+        <div class="col-md-2 col-lg-2 col-xs-12"><b>Usuario</b></div>
+        <div class="col-md-2 col-lg-2 col-xs-12"><b>@Html.DisplayNameFor(model => model.Titulo)</b></div>
+        <div class="col-md-3 col-lg-3 col-xs-12"><b>@Html.DisplayNameFor(model => model.Texto)</b></div>
+        <div class="col-md-1 col-lg-1 col-xs-12"><b>@Html.DisplayNameFor(model => model.Likes)</b></div>
+    </div>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-2 col-lg-2 col-xs-12">@Html.DisplayFor(modelItem => item.Usuario_comenta.Nick)</div>
+            <div class="col-md-2 col-lg-2 col-xs-12">@Html.DisplayFor(modelItem => item.Titulo)</div>
+    <div class="col-md-3 col-lg-3 col-xs-12">@Html.DisplayFor(modelItem => item.Texto)</div>
+            <div class="col-md-1 col-lg-1 col-xs-12"> @Html.DisplayFor(modelItem => item.Likes)</div>
+            <div class="col-md-4 col-lg-4 col-xs-12">
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+
+
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default">@Html.ActionLink("Delete", "Delete", new { id = item.Id })</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<a href="@Url.Action("Administrar", "Usuario")" class="btn btn-default">
+    Volver al menú de administrador
+    <span class="glyphicon glyphicon" aria-hidden="true"></span>
+</a>

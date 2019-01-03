@@ -1,0 +1,13 @@
+﻿@model SportsEventsGenNHibernate.CEN.SportsEvents.ComentarioCEN
+
+<h3>¿Quieres borrar este comentario?</h3>
+<fieldset>
+    <legend>ComentarioCEN</legend>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Sí" /> |
+        @Html.ActionLink("Cancelar", "Index")
+    </p>
+}

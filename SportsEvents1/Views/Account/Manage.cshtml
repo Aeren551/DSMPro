@@ -1,0 +1,63 @@
+﻿@model MvcApplication1.Models.LocalPasswordModel
+@{
+    ViewBag.Title = "Cambiar contraseña";
+}
+
+<div class="principal">
+    <div class="eventos1">
+
+        <p class="message-success">@ViewBag.StatusMessage</p>
+
+        @if (ViewBag.HasLocalPassword)
+        {
+            @Html.Partial("_ChangePasswordPartial")
+        }
+        else
+        {
+            @Html.Partial("_SetPasswordPartial")
+        }
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+
+    <div class="lateral-derecho">
+
+        <div class="calendario">
+            <h1>Mi perfil</h1>
+            <!--Aqui podemos introducir datos que puede hacer el usuario-->
+            <p><a href="#">Mis eventos</a></p>
+            <p>@Html.ActionLink("Crear Evento", "Create", "Evento")</p>
+            <p>@Html.ActionLink("Mis eventos", "EventosUsr/"+User.Identity.Name, "Evento") </p>
+            <p>@Html.ActionLink("Cambiar contraseña", "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Administrar" })</p>
+            @if (ViewBag.tip != null)
+            {
+                <p>@Html.ActionLink("Menú de administrador", "Administrar", "Usuario")</p>
+            }
+
+
+
+        </div>
+
+        @if (User.Identity.Name == "Luis" || User.Identity.Name == "Pablo" || User.Identity.Name == "Victoria")
+        {
+
+            <div style="clear:both;"></div>
+
+            <div id="recomendado" class="recomendado">
+                <h1>Administración</h1>
+                <p>@Html.ActionLink("Todos los eventos", "eventosTodos", "Evento")</p>
+                <!--p>Todos los grupos</!--p> PETA-->
+                <p>@Html.ActionLink("Todos los usuarios", "IndexUsuario", "Usuario")</p>
+
+
+
+            </div>
+        }
+
+    </div>
+
+
+
+</div>

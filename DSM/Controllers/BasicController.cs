@@ -6,9 +6,10 @@ using System.Web;
 using System.Web.Mvc;
 using NHibernate;
 using DSMGenNHibernate.Exceptions;
+using DSMGenNHibernate.CAD;
 using DSMGenNHibernate.CAD.DSM;
 
-namespace DSM.Controllers
+namespace DSMF.Controllers
 {
 public class BasicController: Controller
 {

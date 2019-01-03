@@ -1,0 +1,55 @@
+﻿@model IEnumerable<SportsEventsGenNHibernate.EN.SportsEvents.CategoriaEN>
+
+@{
+    ViewBag.Title = "Categorias";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+
+<body>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"><h2 style="color:limegreen;">Categorias</h2></div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-2"><button type="button" class="btn btn-default">@Html.ActionLink("Create New", "Create")</button></div>
+        </div>
+        <br />
+
+        <div class="row">
+
+            <div class="col-md-8 col-lg-8 col-xs-12"><b>@Html.DisplayNameFor(model => model.Nombre)</b></div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-8 col-lg-8 col-xs-12">@Html.DisplayFor(modelItem => item.Nombre)</div>
+                <div class="col-md-4 col-lg-4 col-xs-12">
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = item.Nombre })</button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default">@Html.ActionLink("Details", "Details", new { id = item.Nombre })</button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default">@Html.ActionLink("Delete", "Delete", new { id = item.Nombre })</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    
+</body>
+</html>

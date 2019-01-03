@@ -1,0 +1,58 @@
+﻿@model SportsEvents_FrontEnd.Models.ReporteModelo
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="jumbotron" style="background-color:white;">
+        <h1 style="color:limegreen; text-align:center">Realizar reporte</h1>
+
+
+        <div class="editor-field">
+            <div class="row" style="font-size:large; text-align:center">
+                @Html.Label("motivo", "¿Cuál es el motivo del reporte?")
+            </div>
+            <div class="row" style="width:100%;">
+                Contenido ofensivo   @Html.RadioButton("motivo", 1)<br />
+                Contenido inapropiado @Html.RadioButton("motivo", 2)<br />
+                Contenido terrorista @Html.RadioButton("motivo", 3)
+                </div>
+            @Html.HiddenFor(model=>model.tipo)
+            @Html.HiddenFor(model=>model.id)
+           
+            <div class="row">
+                <div class="form-group">
+
+                    <textarea class="form-control" rows="5" id="texto" name="texto" placeholder="Información adicional..."></textarea>
+                </div>
+
+              
+            </div>
+            <p style="text-align:center;">
+                <input type="submit" class="btn btn-success" value="Reportar">
+            </p>
+        </div>
+
+    </div>
+
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+ 
+
+}

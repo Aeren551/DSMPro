@@ -1,0 +1,46 @@
+﻿@model SportsEventsGenNHibernate.CEN.SportsEvents.UsuarioCEN
+
+@{
+    ViewBag.Title = "Administrar";
+}
+
+<h2>Menú de administrador</h2>
+
+<div class="btn-group col-xs-12 col-md-12 col-lg-12">
+    <a href="@Url.Action("Index", "Reporte")" class="btn btn-primary">
+        Lista de reportes
+        <span class="glyphicon glyphicon" aria-hidden="true"></span>
+    </a>
+
+    <a href="@Url.Action("Index", "Evento")" class="btn btn-primary">
+        Lista de eventos
+        <span class="glyphicon glyphicon" aria-hidden="true"></span>
+    </a>
+
+    <a href="@Url.Action("Index", "Soporte")" class="btn btn-primary">
+        Consultas de usuarios
+        <span class="glyphicon glyphicon" aria-hidden="true"></span>
+    </a>
+</div>
+<div class="btn-group col-xs-12 col-md-12 col-lg-12">
+    <a href="@Url.Action("Index", "Evento")" class="btn btn-primary">
+        Lista de eventos
+        <span class="glyphicon glyphicon" aria-hidden="true"></span>
+    </a>
+
+    <a href="@Url.Action("Index", "Usuario")" class="btn btn-primary">
+        Lista de usuarios
+        <span class="glyphicon glyphicon" aria-hidden="true"></span>
+    </a>
+
+    <a href="@Url.Action("Index", "Comentario")" class="btn btn-primary">
+        Lista de comentarios
+        <span class="glyphicon glyphicon" aria-hidden="true"></span>
+    </a>
+</div>
+<div class="btn-group col-xs-12 col-md-12 col-lg-12">
+    <a href="@Url.Action("Index", "Foto")" class="btn btn-primary">
+        Lista de fotos
+        <span class="glyphicon glyphicon" aria-hidden="true"></span>
+    </a>
+</div>

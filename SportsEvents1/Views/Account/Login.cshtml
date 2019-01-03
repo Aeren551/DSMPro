@@ -1,0 +1,55 @@
+﻿@model MvcApplication1.Models.LoginModel
+
+@{
+    ViewBag.Title = "Iniciar sesión";
+}
+<style>
+    .cabecera {
+        display: none;
+    }
+</style>
+
+
+<body class="inicio">
+
+
+    <section id="loginForm">
+
+
+        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+
+            <p> @Html.LabelFor(m => m.UserName)</p>
+            <span class="caja"> @Html.TextBoxFor(m => m.UserName)</span>
+            @Html.ValidationMessageFor(m => m.UserName)
+
+            <p>   @Html.LabelFor(m => m.Password)</p>
+            <span class="caja"> @Html.PasswordFor(m => m.Password)</span>
+            @Html.ValidationMessageFor(m => m.Password)
+
+            <span class="recordarme">
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+            </span>
+
+
+            <p>
+                <input class="enviar" type="submit" value="Entrar" />
+                <span class="btn-registrarse">@Html.ActionLink("Regístrese", "Register")</span>
+            </p>
+
+         
+
+        }
+    </section>
+
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+</body>

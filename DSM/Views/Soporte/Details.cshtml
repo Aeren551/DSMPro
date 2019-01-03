@@ -1,0 +1,101 @@
+﻿@model SportsEvents_FrontEnd.Models.SoporteModelo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12"><h2>Soporte - Detalles</h2></div>
+
+        </div>
+
+        <table class="table table-striped">
+                <tbody>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.id)</td>
+                    <td>@Html.DisplayFor(model => model.id)</td>
+                    
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.titulo)</td>
+                    <td>@Html.DisplayFor(model => model.titulo)</td>
+                    
+                </tr>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.texto)</td>
+                    <td>@Html.DisplayFor(model => model.texto)</td>
+                    
+                </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.respuesta)</td>
+                        <td>@Html.DisplayFor(model => model.respuesta)</td>
+
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.nomUsuario)</td>
+                        <td>@Html.DisplayFor(model => model.nomUsuario)</td>
+
+                    </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+
+
+        <fieldset>
+            <legend>SoporteEN</legend>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.id)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.id)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.titulo)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.titulo)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.texto)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.texto)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.respuesta)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.respuesta)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.nomUsuario)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.nomUsuario)
+            </div>
+
+        </fieldset>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+</body>

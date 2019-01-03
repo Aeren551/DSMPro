@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SportsEventsGenNHibernate.EN.SportsEvents.SoporteEN>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<h2>Todas las consultas</h2>
+   
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdSoporte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Texto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Respuesta)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdSoporte)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Texto)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Respuesta)
+                </td>
+                <td>
+
+                    <a href="@Url.Action("Edit", "Soporte", new { id=item.IdSoporte })" class="btn btn-primary">
+                        Contestar
+                        <span class="glyphicon glyphicon" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </table>
+<a href="@Url.Action("Administrar", "Usuario")" class="btn btn-default">
+    Volver al menú de administrador
+    <span class="glyphicon glyphicon" aria-hidden="true"></span>
+</a>

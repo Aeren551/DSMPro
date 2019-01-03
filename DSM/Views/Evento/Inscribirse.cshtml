@@ -1,0 +1,14 @@
+﻿@model SportsEventsGenNHibernate.EN.SportsEvents.EventoEN
+
+@{
+    ViewBag.Title = "Inscribirse";
+}
+@if(ViewBag.err==null){
+<h1>Te has inscrito correctamente</h1>
+@Html.ActionLink("Volver", "Details", new { id=ViewBag.ev})
+}
+else
+{
+    <h1>Número máximo de participantes alcanzado, no puedes inscribirte en este evento!</h1>
+    @Html.ActionLink("Aceptar", "../Home/Index")
+}

@@ -1,0 +1,74 @@
+﻿@model SportsEvents_FrontEnd.Models.SoporteModelo
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+
+<body>
+
+   
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+
+
+            
+            <fieldset>
+                <legend>SoporteEN</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.id)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.id)
+                    @Html.ValidationMessageFor(model => model.id)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.titulo)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.titulo)
+                    @Html.ValidationMessageFor(model => model.titulo)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.texto)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.texto)
+                    @Html.ValidationMessageFor(model => model.texto)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.respuesta)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.respuesta)
+                    @Html.ValidationMessageFor(model => model.respuesta)
+                </div>
+
+                <p>
+                    <input type="submit" value="Save" />
+                </p>
+            </fieldset>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
+        </body>

@@ -1,0 +1,114 @@
+﻿@model MvcApplication1.Models.RegisterModel
+@{
+    ViewBag.Title = "Registrarse";
+}
+
+
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+    <div class="principal">
+
+        <script>
+            function validar() {
+                abrirmodal();
+            }
+            function abrirmodal() {
+                document.getElementById('myModal').style.display = "block";
+            }
+            function cerrarmodal() {
+                document.getElementById('myModal').style.display = "none";
+                isLoged();
+            }
+
+
+        </script>
+        <div id='myModal' class='modal'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <span class='close' onclick='cerrarmodal()'>x</span>
+                </div>
+                <div class='modal-body'>
+                    <div id='result'>@Html.ValidationSummary()</div>
+                </div>
+                <div class='modal-footer'>
+                </div>
+            </div>
+        </div>
+
+        <div class="eventos1">
+            <h1 class="cabecera-registro">Formulario de registro</h1>
+            @Html.AntiForgeryToken()
+
+            <div class="display-label">
+                @Html.Label("Nick", "Introduce tu nombre de usuario")
+            </div>
+            <div class="display-input">
+                @Html.TextBoxFor(m => m.Nick)
+            </div>
+            <div class="display-label">
+                @Html.Label("Nombre", "Nombre")
+            </div>
+            <div class="display-input">
+                @Html.TextBoxFor(m => m.Nombre)
+            </div>
+            <div class="display-label">
+                @Html.LabelFor(m => m.Apellidos)
+            </div>
+            <div class="display-input">
+                @Html.TextBoxFor(m => m.Apellidos)
+            </div>
+            <div class="display-label">
+                @Html.Label("Direccion", "Correo electrónico")
+            </div>
+            <div class="display-input">
+                @Html.TextBoxFor(m => m.Direccion)
+            </div>
+
+            <div class="display-label">
+                @Html.Label("Telefono", "Teléfono")
+            </div>
+            <div class="display-input">
+                @Html.TextBoxFor(m => m.Telefono)
+            </div>
+            <div class="display-label">
+                @Html.LabelFor(m => m.Localidad)
+            </div>
+            <div class="display-input">
+                @Html.TextBoxFor(m => m.Localidad)
+            </div>
+
+            <div class="display-label">
+                @Html.LabelFor(m => m.Provincia)
+            </div>
+            <div class="display-input">
+                @Html.TextBoxFor(m => m.Provincia)
+            </div>
+            <div class="display-label">
+                @Html.LabelFor(m => m.Password)
+            </div>
+            <div class="display-input">
+                @Html.PasswordFor(m => m.Password)
+            </div>
+            <div class="display-label">
+                @Html.LabelFor(m => m.ConfirmPassword)
+            </div>
+            <div class="display-input">
+                @Html.PasswordFor(m => m.ConfirmPassword)
+            </div>
+            <input type="submit" onclick="validar()" class="boton-registrarse" value="Registrarse" />
+
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+<div id="fb-root"></div>
+
+
+<!--ESTO PARA EL LATERAL CON CALENDARIO-->

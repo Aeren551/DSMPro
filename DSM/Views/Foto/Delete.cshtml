@@ -1,0 +1,13 @@
+﻿@model SportsEventsGenNHibernate.CEN.SportsEvents.FotoCEN
+
+<h3>¿Quieres borrar esta foto?</h3>
+<fieldset>
+    <legend>FotoCEN</legend>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Borrar" /> |
+        @Html.ActionLink("Cancelar", "Index")
+    </p>
+}

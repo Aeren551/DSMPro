@@ -1,0 +1,67 @@
+﻿@model SportsEvents_FrontEnd.Models.SoporteModelo
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ var userName = System.Web.HttpContext.Current.User.Identity.Name;
+ }
+
+
+
+
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+
+
+    <body>
+@using (Html.BeginForm())
+{
+    if (Request.IsAuthenticated) { 
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+     
+        <div class="jumbotron text-center" style="background-color:white;">
+            <h1 style="color:limegreen;">Escribe tu consulta</h1>
+            <p>Te enviaremos un e-mail con la respuesta lo antes posible.</p>
+
+            <div class="editor-field">
+                <input class="text-box single-line" id="titulo" name="titulo" type="text" placeholder="Asunto" required style="width:100%;">
+                
+                @Html.ValidationMessageFor(model => model.titulo)
+            </div>
+
+            <div class="editor-field">
+                <div class="form-group">
+
+                    <textarea class="form-control" rows="5" id="texto" name="texto" placeholder="Escribe aqui tu consulta..." required></textarea>
+                </div>
+                
+                @Html.ValidationMessageFor(model => model.texto)
+
+                
+            </div>
+            
+            <p>
+                <input type="submit" class="btn btn-success" value="Enviar">
+            </p>
+
+        </div>
+}
+    else
+    {
+        <h2>¡Necesitas estar logueado para enviar consultas!</h2>
+    @Html.ActionLink("Regístrate aquí", "../Account/Register")
+    @Html.DisplayName(" o ")
+    @Html.ActionLink("inicia sesión", "../Account/Login")
+    }
+}
+
+           
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+</body>

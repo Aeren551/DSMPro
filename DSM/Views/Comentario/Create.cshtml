@@ -1,0 +1,43 @@
+﻿@model SportsEvents_FrontEnd.Models.ComentarioModelo
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="jumbotron text-center" style="background-color:white;">
+        <h1 style="color:limegreen;">Añade tu comentario</h1>
+
+
+        <div class="editor-field">
+            <div class="form-group">
+
+                <textarea class="form-control" rows="5" id="texto" name="texto" placeholder="Escribe aqui tu comentario..."></textarea>
+            </div>
+
+            @Html.ValidationMessageFor(model => model.texto)
+            @Html.HiddenFor(model => model.idre)
+            @Html.HiddenFor(model => model.tipo)
+
+        </div>
+
+        <p>
+            <input type="submit" class="btn btn-success" value="Enviar">
+        </p>
+
+    </div>
+
+
+   
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,76 @@
+﻿@model SportsEvents_FrontEnd.Models.CategoriaModelo
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+
+
+        <div class="row">
+            <h2 style="color:limegreen;">Categoria - Editar</h2>
+
+
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-2 col-lg-2 col-xs-12"><b> @Html.LabelFor(model => model.nombre)</b></div>
+            <div class="col-md-10 col-lg-10 col-xs-12">
+                @Html.EditorFor(model => model.nombre)
+                @Html.ValidationMessageFor(model => model.nombre)
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-4 col-lg-4 col-xs-12">
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default">@Html.ActionLink("Back to List", "Index")</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <fieldset>
+            <legend>CategoriaModelo</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.nombre)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.nombre)
+                @Html.ValidationMessageFor(model => model.nombre)
+            </div>
+
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+        </fieldset>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>
